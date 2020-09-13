@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+    <script>
+        //Variable declararations
+        //Computer choices array
+        var computerChoices = ["r", "p", "s"];
+
+        //Play again condition
+        var playAgain = true;
+
+        //Score counters
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+
+        // While loop to keep the game going
+        while(playAgain){
+
+
+            //Prompt user for their choice
+            var userChoice = prompt("Choose 'r', 'p', or 's'");
+
+
+            //Use math functions to randomly choose the computer choice
+            var compChoice = computerChoices[Math.floor(Math.random() * 3)];
+            console.log(compChoice);
+
+            // Alert user that they didn't enter a value if field was left empty
+            if (userChoice === "") {
+                alert("You didn't enter a value!");
+            }
+
+            //Start comparisons
+            //Camparions for all choices
+            if (userChoice === compChoice){
+                ties++;
+                alert("You tied " + ties + " times.");
+            }
+            else if ((userChoice === "r" && compChoice === "p") || (userChoice === "s" && compChoice === "r") || (userChoice === "p" && compChoice === "s")){
+                losses++;
+                alert("You've lost " + losses + " times.");
+            }
+            else if ((userChoice === "r" && compChoice === "s") || (userChoice === "p" && compChoice === "r") || (userChoice === "s" && compChoice === "p")){
+                wins++;
+                alert("You've won " + wins + " times.");
+            } 
+
+
+            // Use playAgain variable to ask if user wants to play again, if false exits the loop
+            playAgain = confirm("Do you want to play again?");
+
+            }
+
+
+
+    </script>
+    
+</body>
+</html>
